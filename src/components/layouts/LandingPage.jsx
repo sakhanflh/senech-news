@@ -3,32 +3,19 @@ import { CardInner } from "../fragments/CardInner";
 import axios from "axios";
 import { CardCol } from "../fragments/CardCol";
 import { SkeletonLoading } from "../fragments/SkeletonLoading";
+import { useFetch } from "../../hooks/useFetch";
 
 export function LandingPage({ apiUrl }) {
-    const [dataInner, setDataInner] = useState([])
-    const [dataCol, setDataCol] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
-    const arrLength = new Array(6).fill(0)
+    const { data, loading: isLoading, error } = useFetch(apiUrl);
+    const arrLength = new Array(4).fill(0);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(apiUrl)
-                const limitDataInner = response.data.data.posts.slice(0, 1)
-                const limitDataCol = response.data.data.posts.slice(1, 5)
-                setDataInner(limitDataInner)
-                setDataCol(limitDataCol)
-            } catch (err) {
-                console.log(err)
-            } finally {
-                setIsLoading(false)
-            }
-        }
-        fetchData()
-        const intervalId = setInterval(fetchData, 60000)
+    const dataInner = data?.data.posts.slice(0, 1) || [];
+    const dataCol = data?.data.posts.slice(1, 5) || [];
 
-        return () => clearInterval(intervalId)
-    }, [apiUrl])
+    if (error) {
+        console.error(error);
+        return <p>Error fetching data</p>;
+    }
     return (
         <>
             <main className="flex flex-col gap-5 xl:gap-0 xl:flex-row justify-between">
@@ -51,6 +38,7 @@ export function LandingPage({ apiUrl }) {
                                     info={"Terkini"}
                                     bgColor={'bg-secondary hover:bg-primary'}
                                     textColor={'hover:text-secondary'}
+                                    size={'w-full h-72 xl:h-[30rem]'}
                                 />
                             </div>
                         ))}

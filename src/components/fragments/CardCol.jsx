@@ -7,8 +7,9 @@ export function CardCol({ link, thumbnail, title, pubDate, info, bgColor, textCo
     relativeDate = relativeDate.replace('yang', '');
 
     const handleLink = () => {
-        window.location.href = link
+        window.location.href = link;
     }
+
     return (
         <>
             <article className="flex w-full gap-1 hover:bg-slate-50 cursor-pointer" onClick={handleLink}>
@@ -17,11 +18,13 @@ export function CardCol({ link, thumbnail, title, pubDate, info, bgColor, textCo
                 </div>
 
                 <div className="w-[70%] gap-1">
-                    <p className={`px-3 inline-block text-white transition-all duration-200 ease-in-out ${bgColor}`}>{info}</p>
-                    <p className={`font-medium xl:font-bold text-sm xl:text-base hover:text-highlight cursor-pointer transition-all duration-200 ease-in pt-2 ${textColor}`}>{title}</p>
+                    {info && (
+                        <p className={`px-3 inline-block text-white transition-all duration-200 ease-in-out ${bgColor}`}>{info}</p>
+                    )}
+                    <p className={`font-medium xl:font-semibold text-sm xl:text-base hover:text-highlight cursor-pointer transition-all duration-200 ease-in pt-2 line-clamp-2 ${textColor}`}>{title}</p>
                     <p className="opacity-80 text-xs">{relativeDate}</p>
                 </div>
             </article>
         </>
-    )
+    );
 }

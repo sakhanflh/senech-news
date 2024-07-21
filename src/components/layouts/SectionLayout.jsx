@@ -60,6 +60,7 @@ export function SectionLayout({ apiUrl }) {
                                         info={"Politik"}
                                         bgColor={'bg-primary hover:bg-secondary'}
                                         textColor={'hover:text-primary'}
+                                        size={'w-full h-72 xl:h-[30rem]'}
                                     />
                                 </div>
                             ))}
