@@ -1,7 +1,7 @@
 import { formatDistanceToNow } from "date-fns/formatDistanceToNow";
 import { id } from "date-fns/locale/id";
 
-export function CardCol({ link, thumbnail, title, pubDate, info }) {
+export function CardCol({ link, thumbnail, title, pubDate, info, bgColor, textColor }) {
     let relativeDate = formatDistanceToNow(new Date(pubDate), { locale: id, addSuffix: true });
     relativeDate = relativeDate.replace('sekitar', '');
     relativeDate = relativeDate.replace('yang', '');
@@ -17,8 +17,8 @@ export function CardCol({ link, thumbnail, title, pubDate, info }) {
                 </div>
 
                 <div className="w-[70%] gap-1">
-                    <p className="px-3 inline-block text-white bg-secondary hover:bg-primary transition-all duration-200 ease-in-out">{info}</p>
-                    <p className="font-medium xl:font-bold text-sm xl:text-base hover:text-highlight cursor-pointer transition-all duration-200 ease-in hover:text-secondary pt-2">{title}</p>
+                    <p className={`px-3 inline-block text-white transition-all duration-200 ease-in-out ${bgColor}`}>{info}</p>
+                    <p className={`font-medium xl:font-bold text-sm xl:text-base hover:text-highlight cursor-pointer transition-all duration-200 ease-in pt-2 ${textColor}`}>{title}</p>
                     <p className="opacity-80 text-xs">{relativeDate}</p>
                 </div>
             </article>

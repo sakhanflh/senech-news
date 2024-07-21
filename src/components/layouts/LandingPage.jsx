@@ -4,7 +4,7 @@ import axios from "axios";
 import { CardCol } from "../fragments/CardCol";
 import { SkeletonLoading } from "../fragments/SkeletonLoading";
 
-export function LandingPage() {
+export function LandingPage({ apiUrl }) {
     const [dataInner, setDataInner] = useState([])
     const [dataCol, setDataCol] = useState([])
     const [isLoading, setIsLoading] = useState(true)
@@ -13,12 +13,11 @@ export function LandingPage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://api-berita-indonesia.vercel.app/antara/terbaru/')
+                const response = await axios.get(apiUrl)
                 const limitDataInner = response.data.data.posts.slice(0, 1)
-                const limitDataCol = response.data.data.posts.slice(2, 6)
+                const limitDataCol = response.data.data.posts.slice(1, 5)
                 setDataInner(limitDataInner)
                 setDataCol(limitDataCol)
-                console.log(response.data.data.posts)
             } catch (err) {
                 console.log(err)
             } finally {
@@ -26,7 +25,10 @@ export function LandingPage() {
             }
         }
         fetchData()
-    }, [dataInner, dataCol])
+        const intervalId = setInterval(fetchData, 60000)
+
+        return () => clearInterval(intervalId)
+    }, [apiUrl])
     return (
         <>
             <main className="flex flex-col gap-5 xl:gap-0 xl:flex-row justify-between">
@@ -47,12 +49,14 @@ export function LandingPage() {
                                     description={dt.description}
                                     thumbnail={dt.thumbnail}
                                     info={"Terkini"}
+                                    bgColor={'bg-secondary hover:bg-primary'}
+                                    textColor={'hover:text-secondary'}
                                 />
                             </div>
                         ))}
                 </div>
                 <div className={`xl:w-[40%] flex flex-col gap-4 ${dataCol?.length == 2 || dataCol?.length % 2 !== 0 ? 'xl:gap-x-4' : 'xl:justify-between'}`}>
-                    <div className="w-full border-b border-black text-2xl font-semibold">
+                    <div className="w-full border-b border-black border-opacity-25 text-2xl font-semibold">
                         <h1 className="text-secondary border-b-2 max-w-20 border-secondary">Terkini</h1>
                     </div>
                     {isLoading ?
@@ -79,6 +83,8 @@ export function LandingPage() {
                                     description={dt.description}
                                     thumbnail={dt.thumbnail}
                                     info={"Terkini"}
+                                    bgColor={'bg-secondary hover:bg-primary'}
+                                    textColor={'hover:text-secondary'}
                                 />
                             </div>
                         ))}
