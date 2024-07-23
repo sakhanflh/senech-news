@@ -3,6 +3,7 @@ import { Layout } from "../components/layouts/Layout";
 import { SectionLayout } from "../components/layouts/SectionLayout";
 import { InternasionalSection } from "../components/layouts/home/InternasionalSection";
 import { NasionalSection } from "../components/layouts/home/NasionalSection";
+import { PolitikSection } from "../components/layouts/home/PolitikSection";
 
 export default function HomePage() {
     return (
@@ -15,6 +16,8 @@ export default function HomePage() {
                     <NasionalSection
                     />
                     <InternasionalSection
+                    />
+                    <PolitikSection
                     />
                 </div>
             </Layout>

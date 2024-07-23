@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import { CardInner } from "../fragments/CardInner";
-import axios from "axios";
 import { CardCol } from "../fragments/CardCol";
 import { SkeletonLoading } from "../fragments/SkeletonLoading";
 import { useFetch } from "../../hooks/useFetch";
@@ -9,8 +7,8 @@ export function LandingPage({ apiUrl }) {
     const { data, loading: isLoading, error } = useFetch(apiUrl);
     const arrLength = new Array(4).fill(0);
 
-    const dataInner = data?.data.posts.slice(0, 1) || [];
-    const dataCol = data?.data.posts.slice(1, 5) || [];
+    const dataInner = data?.data?.posts?.slice(0, 1) || [];
+    const dataCol = data?.data?.posts?.slice(1, 5) || [];
 
     if (error) {
         console.error(error);

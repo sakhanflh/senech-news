@@ -7,9 +7,9 @@ export function NasionalSection() {
     const { data, loading: isLoading, error } = useFetch('https://api-berita-indonesia.vercel.app/cnn/nasional/');
     const arrLength = new Array(8).fill(0);
 
-    const dataInner = data?.data.posts.slice(0, 2) || [];
-    const dataCol = data?.data.posts.slice(2, 12) || [];
-    const dataCol2 = data?.data.posts.slice(12, 19) || [];
+    const dataInner = data?.data?.posts?.slice(0, 2) || [];
+    const dataCol = data?.data?.posts?.slice(2, 12) || [];
+    const dataCol2 = data?.data?.posts?.slice(12, 19) || [];
 
     if (error) {
         console.error(error);
