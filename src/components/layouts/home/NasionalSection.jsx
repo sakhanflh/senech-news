@@ -5,7 +5,8 @@ import { useFetch } from "../../../hooks/useFetch";
 
 export function NasionalSection() {
     const { data, loading: isLoading, error } = useFetch('https://api-berita-indonesia.vercel.app/cnn/nasional/');
-    const arrLength = new Array(8).fill(0);
+    const arrLength = new Array(5).fill(0);
+    const arrLength2 = new Array(7).fill(0);
 
     const dataInner = data?.data?.posts?.slice(0, 2) || [];
     const dataCol = data?.data?.posts?.slice(2, 12) || [];
@@ -85,7 +86,7 @@ export function NasionalSection() {
                         <p className="border-b-2 border-primary max-w-28 text-2xl font-medium text-primary">Terpopuler</p>
                     </div>
                     {isLoading ?
-                        arrLength.map((_, i) => (
+                        arrLength2.map((_, i) => (
                             <article key={i} className="flex w-full gap-1">
                                 <div className="w-32 h-24">
                                     <SkeletonLoading width={'w-32'} height={'h-24'} />

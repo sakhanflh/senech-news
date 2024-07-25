@@ -5,7 +5,8 @@ import { SkeletonLoading } from "../../fragments/SkeletonLoading";
 
 export function InternasionalSection() {
     const { data, loading: isLoading, error } = useFetch('https://api-berita-indonesia.vercel.app/cnn/internasional/');
-    const arrLength = new Array(8).fill(0);
+    const arrLength = new Array(5).fill(0);
+    const arrLength2 = new Array(7).fill(0);
 
     const dataInner = data?.data?.posts?.slice(0, 2) || [];
     const dataCol = data?.data?.posts?.slice(2, 12) || [];
@@ -84,7 +85,7 @@ export function InternasionalSection() {
                         <p className="border-b-2 border-black max-w-28 text-2xl font-medium text-black">Terpopuler</p>
                     </div>
                     {isLoading ?
-                        arrLength.map((_, i) => (
+                        arrLength2.map((_, i) => (
                             <article key={i} className="flex w-full gap-1">
                                 <div className="w-32 h-24">
                                     <SkeletonLoading width={'w-32'} height={'h-24'} />
