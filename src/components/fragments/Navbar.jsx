@@ -1,15 +1,17 @@
+import { Link } from "react-router-dom";
+
 export function Navbar({ style }) {
     return (
         <>
             <nav>
                 <ul className={style}>
-                    <li className="hover:text-secondary">Terbaru</li>
-                    <li className="hover:text-secondary">Nasional</li>
-                    <li className="hover:text-secondary">Internasional</li>
-                    <li className="hover:text-secondary">Politik</li>
-                    <li className="hover:text-secondary">Ekonomi</li>
-                    <li className="hover:text-secondary">Olahraga</li>
-                    <li className="hover:text-secondary">Otomotif</li>
+                    <Link to={'/'} className="hover:text-secondary">Home</Link>
+                    <Link to={'/nasional'} className="hover:text-secondary">Nasional</Link>
+                    <Link className="hover:text-secondary">Internasional</Link>
+                    <Link className="hover:text-secondary">Politik</Link>
+                    <Link className="hover:text-secondary">Ekonomi</Link>
+                    <Link className="hover:text-secondary">Olahraga</Link>
+                    <Link className="hover:text-secondary">Otomotif</Link>
                 </ul>
             </nav>
         </>

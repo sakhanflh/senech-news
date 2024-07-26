@@ -4,7 +4,7 @@ import { Navbar } from "../fragments/Navbar";
 export function MobileNavbar({ isOpen }) {
     return (
         <>
-            <div className={`fixed inset-0 bg-white z-40 transform ${isOpen ? 'translate-y-14' : '-translate-y-full'} transition-transform duration-300 ease-in-out`}>
+            <div className={`fixed inset-0 bg-white z-40 transform ${isOpen ? 'translate-y-14' : 'opacity-0 cursor-none -translate-y-full'} transition-all duration-300 ease-in-out`}>
                 <div className="p-6">
                     <div className="mb-4 flex items-center">
                         <input
@@ -24,9 +24,8 @@ export function MobileNavbar({ isOpen }) {
                         <h2 className="font-bold mb-2 mt-5">Company</h2>
                         <ul>
                             <li><a href="#" className="block py-1">About Us</a></li>
-                            <li><a href="#" className="block py-1">Partner with Us</a></li>
-                            <li><a href="#" className="block py-1">Careers</a></li>
                             <li><a href="#" className="block py-1">Contact Us</a></li>
+                            <li><a href="#" className="block py-1">Partner with Us</a></li>
                         </ul>
                     </div>
                 </div>

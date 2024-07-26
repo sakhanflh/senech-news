@@ -29,22 +29,22 @@ export function Footer() {
                 <div className="flex gap-10 pt-5 xl:pt-0">
                     <div className="flex flex-col gap-3">
                         <p className="font-medium">Get News</p>
-                        <ul className="font-light">
-                            <li>Terbaru</li>
-                            <li>Nasional</li>
-                            <li>Internasional</li>
-                            <li>Politik</li>
-                            <li>Ekonomi</li>
-                            <li>Olahraga</li>
-                            <li>Otomotif</li>
-                            <li>Bookmarks</li>
+                        <ul className="font-light gap-1 flex flex-col">
+                            <li className="cursor-pointer hover:text-primary">Terbaru</li>
+                            <li className="cursor-pointer hover:text-primary">Nasional</li>
+                            <li className="cursor-pointer hover:text-primary">Internasional</li>
+                            <li className="cursor-pointer hover:text-primary">Politik</li>
+                            <li className="cursor-pointer hover:text-primary">Ekonomi</li>
+                            <li className="cursor-pointer hover:text-primary">Olahraga</li>
+                            <li className="cursor-pointer hover:text-primary">Otomotif</li>
                         </ul>
                     </div>
                     <div className="flex flex-col gap-3">
                         <p className="font-medium">Company</p>
-                        <ul className="font-light">
-                            <li>About Us</li>
-                            <li>Contact Us</li>
+                        <ul className="font-light gap-1 flex flex-col">
+                            <li className="cursor-pointer hover:text-secondary">About Us</li>
+                            <li className="cursor-pointer hover:text-secondary">Contact Us</li>
+                            <li className="cursor-pointer hover:text-secondary">Partner with Us</li>
                         </ul>
                     </div>
                 </div>
