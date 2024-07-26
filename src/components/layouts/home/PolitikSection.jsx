@@ -23,8 +23,8 @@ export function PolitikSection() {
                 <button className="py-2 px-5 bg-white text-black font-medium hover:bg-secondary hover:text-white transition-all duration-300">Selengkapnya</button>
             </div>
 
-            <article className="w-full flex justify-between">
-                <div className="w-[55%]">
+            <article className="w-full flex flex-col xl:flex-row justify-between gap-2 xl:gap-0">
+                <div className="w-full xl:w-[55%]">
                     {isLoading ?
                         <article className="flex w-full h-[30rem] relative overflow-hidden group cursor-pointer text-white">
                             <div className="absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-110">
@@ -47,7 +47,7 @@ export function PolitikSection() {
                         ))}
                 </div>
 
-                <div className="w-[40%] flex flex-col gap-2">
+                <div className="w-full xl:w-[40%] flex flex-col gap-2">
                     {isLoading ?
                         arrLength.map((_, i) => (
                             <article key={i} className="flex w-full gap-1">
@@ -74,7 +74,7 @@ export function PolitikSection() {
                                     info={"Politik"}
                                     bgColor={'bg-secondary hover:bg-primary'}
                                     textColor={'hover:text-secondary'}
-                                    parentsBg={'hover:bg-gray-950'}
+                                    parentsBg={'hover:bg-slate-950'}
                                 />
                             </div>
                         ))}

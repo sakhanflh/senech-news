@@ -13,7 +13,7 @@ export function CardRow({ link, thumbnail, title, pubDate, info, bgColor, textCo
     return (
         <>
             <article className={`flex flex-col w-80 gap-1 hover:bg-slate-50 cursor-pointer ${parentsBg}`} onClick={handleLink}>
-                <div className="w-full h-28 xl:h-48">
+                <div className="w-full h-36 xl:h-48">
                     <img src={thumbnail} alt="" className="w-full h-full object-cover" />
                 </div>
 
