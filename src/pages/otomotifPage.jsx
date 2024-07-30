@@ -28,7 +28,7 @@ export default function OtomotifPage() {
                     />
                 </div>
             </Layout>
-            <Footer/>
+            <Footer />
         </main>
     )
 }
