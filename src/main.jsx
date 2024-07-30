@@ -9,6 +9,7 @@ import PolitikPage from './pages/politikPage'
 import EkonomiPage from './pages/ekonomiPage'
 import OlahragaPage from './pages/olahragaPage'
 import OtomotifPage from './pages/otomotifPage'
+import NotFoundPage from './pages/notFoundPage'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/ekonomi' element={<EkonomiPage />} />
         <Route path='/olahraga' element={<OlahragaPage />} />
         <Route path='/otomotif' element={<OtomotifPage />} />
+        <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </HashRouter>
   </React.StrictMode>,
